@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Peddana&family=Playfair+Display+SC&display=swap');
+
+* {
+  padding: 0;
+  margin-top: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+:root {
+  --clr-dark-violet: #011936;
+  --clr-Very-Dark: #161722;
+  --clr-Very-Dark-Desaturated-Blue: #25273c;
+  --clr-Very-Grayish-Blue: #4d5066;
+  --clr-Very-Dark-Grayish-Blue: #393a4c;
+  --clr-verdigris: #48a9a6;
+  --dark-pastel-green: #20bf55;
+  --clr-blue: #0b4f6c;
+  --clr-royal-blue-dark: #03256c;
+  --clr-denim-blue: #2541b2;
+  --clr-blue: #1768ac;
+  --clr-Dark-Blue: #2b3945;
+  --clr-Very-Dark-Blue: #202c37;
+  --clr-Very-Dark-Blue-Light: #111517;
+  --clr-Dark-Grayish-Blue: #323a49;
+  --box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25),
+    -2px -2px 2px rgba(0, 0, 0, 0.25);
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--clr-blue);
+  background-color: rgb(223, 87, 162);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* main */
+.main {
+  width: 95%;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+  font-family: 'Marcellus SC', serif;
+}
+
+.icon {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+/* form {
+  text-align: center;
+} */
+
+input {
+  width: 330px;
+  padding: 10px 0;
+  padding-left: 1rem;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+input.error {
+  border: 2px solid orangered;
+}
+
+small {
+  text-align: left;
+  color: orangered;
+  font-style: oblique;
+}
+
+.btn-container {
+  text-align: center;
+  font-family: 'Marcellus SC', serif;
+}
+
+/*  */
+.btn {
+  cursor: pointer;
+  margin-bottom: 2.5rem;
+  margin-top: 5px;
+
+  --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+  --border-width: 0.125em;
+  --curve-size: 0.5em;
+  --blur: 30px;
+  --bg: #d7d743;
+  --color: #afffff;
+  color: black;
+  /* use position: relative; so that BG is only for .btn */
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  place-content: center;
+  padding: 0.5em 1.5em;
+  font-size: 17px;
+  border: 0;
+  text-transform: uppercase;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+  clip-path: polygon(
+    /* Top-left */ 0% var(--curve-size),
+    var(--curve-size) 0,
+    /* top-right */ 100% 0,
+    100% calc(100% - var(--curve-size)),
+    /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
+    /* bottom-right 2 */ 0 100%
+  );
+  transition: color 250ms;
+}
+
+.btn::after,
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.btn::before {
+  background: var(--border-color);
+  background-size: 300% 300%;
+  animation: move-bg7234 5s ease infinite;
+  z-index: -2;
+}
+
+@keyframes move-bg7234 {
+  0% {
+    background-position: 31% 0%;
+  }
+
+  50% {
+    background-position: 70% 100%;
+  }
+
+  100% {
+    background-position: 31% 0%;
+  }
+}
+
+.btn::after {
+  background: var(--bg);
+  z-index: -1;
+  clip-path: polygon(
+    /* Top-left */ var(--border-width)
+      calc(var(--curve-size) + var(--border-width) * 0.5),
+    calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    /* bottom-right 1 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+  );
+  transition: clip-path 500ms;
+}
+
+.btn:where(:hover, :focus)::after {
+  clip-path: polygon(
+    /* Top-left */ calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - var(--border-width)) var(--border-width),
+    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    /* bottom-right 1 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    /* bottom-right 2 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width))
+  );
+  transition: 200ms;
+}
+
+.btn:where(:hover, :focus) {
+  color: #fff;
+}
+/*  */
+
+.color {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.color.color-light {
+  color: aliceblue;
+}
+
+.percentage {
+  font-weight: 600;
+}
+
+.alert-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alert {
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+
+/* media screen */
+@media screen and (min-width: 450px) {
+  input {
+    width: 425px;
+    margin: 0 auto;
+  }
+
+  .color-section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .color {
+    padding: 10px;
+    width: 200px;
+    height: 80px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  form {
+    display: flex;
+    gap: 1rem;
+  }
+
+  h2 {
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .main {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  form {
+    text-align: left;
+  }
+}
